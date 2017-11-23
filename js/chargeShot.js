@@ -191,6 +191,6 @@ jQuery(function(){
     });
     
     $('#tweet-button').on('click', function(){
-        window.open(encodeURI('https://twitter.com/intent/tweet?text=' + (result * 3000).toFixed(2) + "パワーで" + reachPoint + "まで到達!! " + comment + " - チャージショットこあちゃん " + location.href))
+        window.open(encodeURI('https://twitter.com/intent/tweet?text=' + (result * 3000).toFixed(2) + "パワーで" + reachPoint + "まで到達!! " + comment + " - #チャージショットこあちゃん " + location.href))
     })
 });
