@@ -170,9 +170,12 @@ jQuery(function(){
                             gameDisplay.before('<img src="images/game/chargeShot/nozokimi_man.png" height="200" style="position: absolute; margin-top: 0px; margin-left:1500px;" />');
                             reachPoint = (reachPoint == '' ? '国土交通省' : reachPoint);
                             comment = (comment == '' ? '「もうちょっと頑張りましょ？」' : comment);
-                            $('#result-word').css({display: 'block', 'margin-left':result * 2850}).html('<p>' + reachPoint + 'まで到達!! </p>');
-                            $('#tweet-button').css({display: 'block', 'margin-left':result * 3000});
                         default:
+                            comment = (comment == '' ? '「わざとやってます？」' : comment);
+                            var reachDom = (reachPoint == '' ? '到達ならず...。' : '<p>' + reachPoint + 'まで到達!! </p>');
+                            
+                            $('#result-word').css({display: 'block', 'margin-left':(result * 3000 - 300)}).html(reachDom);
+                            $('#tweet-button').css({display: 'block', 'margin-left':result * 3000});
                             $('#result-display > .reset-button').css({display: 'block', 'margin-left':result * 3000});
                             break;
                     }
@@ -191,6 +194,12 @@ jQuery(function(){
     });
     
     $('#tweet-button').on('click', function(){
-        window.open(encodeURI('https://twitter.com/intent/tweet?text=' + (result * 3000).toFixed(2) + "パワーで" + reachPoint + "まで到達!! " + comment + " - チャージショットこあちゃん " + location.href))
+        var powerComment = "";
+        if (reachPoint == '') {
+            powerComment = (result * 3000).toFixed(2) + "パワーで到達ならず。 ";
+        } else {
+            powerComment = (result * 3000).toFixed(2) + "パワーで" + reachPoint + "まで到達!! ";
+        }
+        window.open(encodeURI('https://twitter.com/intent/tweet?text=' + powerComment + comment + " - チャージショットこあちゃん " + location.href))
     })
 });
