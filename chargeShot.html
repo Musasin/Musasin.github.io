@@ -34,21 +34,38 @@
     <!--ゲーム画面-->
     <div id="game-display" style="display: none">
         <div class="row">
-            <p id="power">power: 0.00</p>
-            <p id="aim">aim: 0.00</p>
-            <p id="axis">axis: 0.00</p>
-            <p id="now_mode"></p>
-        </div>
-        <div id="yellow-circle" style="margin-top:120px; position: absolute; width:200px; height:200px; background:yellow; border-radius: 100px; opacity: 0.5;"></div>
-        <div id="power-gauge-frame" style="margin-left:240px; margin-top:50px; position: absolute; width:20px; height:250px; background:yellowgreen;">
-            <div id="power-gauge" style="margin-left: 2px; width:16px; background-color: red;"></div>
+            <p id="power-data">power: 0.00</p>
+            <p id="aim-data">aim: 0.00</p>
+            <p id="result-data">result: 0.00</p>
         </div>
         
-        <!--powerを消してaimを表示するところから　画像の上から赤い線を動かす予定-->
-        <div id="aim-gauge-frame" style="margin-left:240px; margin-top:50px; position: absolute; width:20px; height:250px; background:yellowgreen;">
-            <div id="aim-gauge"><img src="images/game/chargeShot/aim_gauge.png" /></div>
+        
+        <div id="yellow-circle" style="margin-top:120px; position: absolute; width:200px; height:200px; background:yellow; border-radius: 100px; opacity: 0.5; display: block"></div>
+
+        <!--power-->
+        <div id="power" style="display:none;">
+            <div id="power-gauge-frame" style="margin-left:240px; margin-top:50px; position: absolute; width:20px; height:250px; background:yellowgreen;">
+                <div id="power-gauge" style="margin-left: 2px; width:16px; background-color: red;"></div>
+            </div>
         </div>
-        <div><img src="images/game/chargeShot/koa1.png" height="200" style="margin-top:100px; margin-left:15px;" /></div>
+        
+        <!--aim-->
+        <div id="aim" style="display:none;">
+            <div id="aim-gauge-frame" style="margin-left:280px; margin-top:50px; position: absolute; width:20px; height:250px;">
+                <img src="images/game/chargeShot/aim_gauge.png" />
+            </div>
+            <div id="aim-gauge" style="margin-left:280px; margin-top:295px; position: absolute; width:20px; height:5px; background:red;">
+            </div>
+        </div>
+        
+        <!--koa-->
+        <div id="koa"><img src="images/game/chargeShot/koa1.png" id="koa-img" height="200" style="margin-top:100px; margin-left:15px;" /></div>
+    </div>
+
+    <div id="result-display">
+        <p id="result-word" style="width:500px; margin-top:150px; font-size:25px; position: absolute; display:none;"></p>
+        <button id="tweet-button" type="button" style="width:100px; font-size:15px; position: absolute; margin-top: 150px; display:none">つぶやく</button>
+        <button class="reset-button" type="button" style="width:100px; font-size:15px; position: absolute; margin-top: 200px; display:none;">リセット</button>
     </div>
     
     <div class="row" style="text-align: center;">
@@ -56,7 +73,7 @@
     </div>
 
     <div class="row" style="text-align: right;">
-        <button id="reset_button" type="button" style="font-size:15px; margin:20px;">リセット</button>
+        <button class="reset-button" type="button" style="font-size:15px; margin:20px;">リセット</button>
     </div>
 </div>
 
