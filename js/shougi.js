@@ -51,12 +51,20 @@ jQuery(function() {
                 var newPosition = Number(this.id);
                 var isInRange = false;
                 var okPosition = [];
+                var changeNiwatori = false;
                 switch (nowSelectionObject) {
                     case 'player-hiyoko':
                     case 'enemy-hiyoko':
                         if ((newPosition == nowSelectionSquare - 10 && isPlayerTurn) ||
                             (newPosition == nowSelectionSquare + 10 && !isPlayerTurn)) {
                             isInRange = true;
+
+                            if (newPosition <= 13 && isPlayerTurn) {
+                                changeNiwatori = true;
+                            }
+                            if (newPosition >= 41 && !isPlayerTurn) {
+                                changeNiwatori = true;
+                            }
                         }
                         break;
                     case 'player-kirin':
@@ -82,7 +90,17 @@ jQuery(function() {
                         }
                         break;
                     case 'player-niwatori':
-                        // atode
+                    case 'enemy-niwatori':
+                        if (isPlayerTurn) {
+                            okPosition = [nowSelectionSquare - 11,                                                  nowSelectionSquare - 9,
+                                          nowSelectionSquare - 10, nowSelectionSquare + 10, nowSelectionSquare + 1, nowSelectionSquare - 1];
+                        } else {
+                            okPosition = [                         nowSelectionSquare + 11, nowSelectionSquare + 9, 
+                                          nowSelectionSquare - 10, nowSelectionSquare + 10, nowSelectionSquare + 1, nowSelectionSquare - 1];
+                        }
+                        if (okPosition.some(function(v){ return v == newPosition})) {
+                            isInRange = true;
+                        }
                         break;
                     default:
                         break;
@@ -120,6 +138,16 @@ jQuery(function() {
                         if (nowMode == MODE.OBJECT_SELECTED) {
                             nowMode = MODE.NONE;
                         }
+
+                        // 鶏化チェック
+                        if (changeNiwatori) {
+                            if (isPlayerTurn) {
+                                $('#' + newPosition).html('<div id="player-niwatori" class="player-object"><img src="images/game/shougi/animal_mark_niwatori.png" style="width:100%; height:100%;"></div>');
+                            } else {
+                                $('#' + newPosition).html('<div id="enemy-niwatori" class="enemy-object"><img src="images/game/shougi/animal_mark_niwatori.png" style="width:100%; height:100%; transform:rotate(180deg);"></div>');
+                            }
+                        }
+                        
                         turn++;
                     }
                 }
