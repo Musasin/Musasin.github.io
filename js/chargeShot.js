@@ -21,6 +21,7 @@ jQuery(function(){
     var aimGaugeMaxMargin = 295;
 
     var reachPoint = '';
+    var comment = '';
 
     var SCENES = {
         WAITING : 1,
@@ -128,44 +129,53 @@ jQuery(function(){
                 }).animate({opacity: '+=1.0'}, 300, function() {
                     
                     var gameDisplay = $('#game-display');
-                    var resultDisplay = $('#result-display');
                     switch (true) {
                         case result > 4:
                             gameDisplay.before('<img src="images/game/chargeShot/building_gyousei_text08_kouseiroudousyou.png" height="200" style="position: absolute; margin-top: 300px; margin-left:12000px;" />');
                             gameDisplay.before('<img src="images/game/chargeShot/jishin_building.png" height="200" style="position: absolute; margin-top: 100px; margin-left:11800px;" />');
                             reachPoint = (reachPoint == '' ? '厚生労働省' : reachPoint);
+                            comment = (comment == '' ? '「ここを破壊し、労働という概念そのものを消し去るのだ...」' : comment);
                         case result > 3.9:
                             gameDisplay.before('<img src="images/game/chargeShot/building_gyousei_text06_zaimusyou.png" height="200" style="position: absolute; margin-top: 300px; margin-left:11700px;" />');
                             gameDisplay.before('<img src="images/game/chargeShot/jishin_house.png" height="200" style="position: absolute; margin-top: 70px; margin-left:11200px;" />');
                             reachPoint = (reachPoint == '' ? '財務省' : reachPoint);
+                            comment = (comment == '' ? '「とりあえず消費税を10倍にしましょう」' : comment);
                         case result > 3.7:
                             gameDisplay.before('<img src="images/game/chargeShot/building_gyousei_text_keishichou.png" height="200" style="position: absolute; margin-top: 300px; margin-left:11100px;" />');
                             gameDisplay.before('<img src="images/game/chargeShot/jishin_building.png" height="200" style="position: absolute; margin-top: 40px; margin-left:10800px;" />');
                             reachPoint = (reachPoint == '' ? '警視庁' : reachPoint);
+                            comment = (comment == '' ? '「官房長って実際どんなことする人なんですか？」' : comment);
                         case result > 3.5:
                             gameDisplay.before('<img src="images/game/chargeShot/building_gyousei_text03_soumusyou.png" height="200" style="position: absolute; margin-top: 300px; margin-left:10500px;" />');
                             gameDisplay.before('<img src="images/game/chargeShot/jishin_house.png" height="200" style="position: absolute; margin-top: 40px; margin-left:10300px;" />');
                             gameDisplay.before('<img src="images/game/chargeShot/jishin_building.png" height="200" style="position: absolute; margin-top: 80px; margin-left:9800px;" />');
                             reachPoint = (reachPoint == '' ? '総務省' : reachPoint);
+                            comment = (comment == '' ? '「キャッチフレーズは、「実はここにも総務省」」' : comment);
                         case result > 3:
                             gameDisplay.before('<img src="images/game/chargeShot/building_gyousei_text07_monbukagakusyou.png" height="200" style="position: absolute; margin-top: 300px; margin-left:9000px;" />');
                             gameDisplay.before('<img src="images/game/chargeShot/jishin_house.png" height="200" style="position: absolute; margin-top: 80px; margin-left:8500px;" />');
                             gameDisplay.before('<img src="images/game/chargeShot/jishin_building.png" height="200" style="position: absolute; margin-top: 100px; margin-left:7000px;" />');
                             reachPoint = (reachPoint == '' ? '文部科学省' : reachPoint);
+                            comment = (comment == '' ? '「学習やスポーツはもちろん、宗教に関する行政事務も行なっているそうです」' : comment);
                         case result > 2:
                             gameDisplay.before('<img src="images/game/chargeShot/building_gyousei_text13_boueisyou.png" height="200" style="position: absolute; margin-top: 300px; margin-left:6000px;" />');
                             gameDisplay.before('<img src="images/game/chargeShot/jishin_house.png" height="200" style="position: absolute; margin-top: 20px; margin-left:5700px;" />');
                             gameDisplay.before('<img src="images/game/chargeShot/jishin_building.png" height="200" style="position: absolute; margin-top: 50px; margin-left:4500px;" />');
                             reachPoint = (reachPoint == '' ? '防衛省' : reachPoint);
+                            comment = (comment == '' ? '「この位置、狙って出しづらいんですよ」': comment);
                         case result > 1:
                             gameDisplay.before('<img src="images/game/chargeShot/building_gyousei_text11_kokudokoutsusyou.png" height="200" style="position: absolute; margin-top: 300px; margin-left:3000px;" />');
                             gameDisplay.before('<img src="images/game/chargeShot/jishin_house.png" height="200" style="position: absolute; margin-top: 90px; margin-left:2700px;" />');
                             gameDisplay.before('<img src="images/game/chargeShot/jishin_building.png" height="200" style="position: absolute; margin-top: 100px; margin-left:2000px;" />');
                             gameDisplay.before('<img src="images/game/chargeShot/nozokimi_man.png" height="200" style="position: absolute; margin-top: 0px; margin-left:1500px;" />');
                             reachPoint = (reachPoint == '' ? '国土交通省' : reachPoint);
-                            $('#result-word').css({display: 'block', 'margin-left':result * 2900}).html('<p>' + reachPoint + 'まで到達!! </p>');
-                            $('#tweet-button').css({display: 'block', 'margin-left':result * 3000});
+                            comment = (comment == '' ? '「もうちょっと頑張りましょ？」' : comment);
                         default:
+                            comment = (comment == '' ? '「わざとやってます？」' : comment);
+                            var reachDom = (reachPoint == '' ? '到達ならず...。' : '<p>' + reachPoint + 'まで到達!! </p>');
+                            
+                            $('#result-word').css({display: 'block', 'margin-left':(result * 3000 - 300)}).html(reachDom);
+                            $('#tweet-button').css({display: 'block', 'margin-left':result * 3000});
                             $('#result-display > .reset-button').css({display: 'block', 'margin-left':result * 3000});
                             break;
                     }
@@ -184,6 +194,12 @@ jQuery(function(){
     });
     
     $('#tweet-button').on('click', function(){
-        window.open(encodeURI('https://twitter.com/intent/tweet?text=' + (result * 3000).toFixed(2) + "パワーで" + reachPoint + "まで到達!! - チャージショットこあちゃん" + location.href))
+        var powerComment = "";
+        if (reachPoint == '') {
+            powerComment = (result * 3000).toFixed(2) + "パワーで到達ならず。 ";
+        } else {
+            powerComment = (result * 3000).toFixed(2) + "パワーで" + reachPoint + "まで到達!! ";
+        }
+        window.open(encodeURI('https://twitter.com/intent/tweet?text=' + powerComment + comment + " - チャージショットこあちゃん " + location.href))
     })
 });

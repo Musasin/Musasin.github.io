@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>どうぶつしょうぎ</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/shougi.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="col-xs-12"><h1>名前未定なページ</h1></div>
+    <div class="col-xs-12">
+        <div class="col-xs-2"><a href="index.html">Top</a></div>
+        <div class="col-xs-2">About</div>
+        <div class="col-xs-2"><a href="games.html">Games</a></div>
+        <div class="col-xs-2"><a href="pictures.html">Pictures</a></div>
+    </div>
+</div>
+<div class="container">
+    <div class="col-xs-12">
+        <h1>どうぶつしょうぎ</h1>
+    </div>
+</div>
+
+<div class="container" style="width: 600px; height: 800px;">
+
+<div id="enemy-win" class="row" style="text-align:center; font-size:50px; transform:rotate(180deg); display:none;">勝ち</div>
+<div id="enemy-lose" class="row" style="text-align:center; font-size:50px; transform:rotate(180deg); display:none;">負け</div>
+    <div id="enemy-captured-piece" class="row">
+        <div id="enemy-captured-piece-hiyoko-1" class="square  col-xs-2"></div>
+        <div id="enemy-captured-piece-hiyoko-2" class="square col-xs-2"></div>
+        <div id="enemy-captured-piece-kirin-1" class="square col-xs-2"></div>
+        <div id="enemy-captured-piece-kirin-2" class="square col-xs-2"></div>
+        <div id="enemy-captured-piece-zou-1" class="square col-xs-2"></div>
+        <div id="enemy-captured-piece-zou-2" class="square col-xs-2"></div>
+    </div>
+    <div class="row">
+        <div id="11" class="square col-xs-4" style="height:170px">
+            <div id="enemy-kirin" class="enemy-object">
+                <img src="images/game/shougi/animal_mark_kirin.png" style="width:100%; height:100%; transform:rotate(180deg);">
+            </div>
+        </div>
+        <div id="12" class="square col-xs-4" style="height:170px">
+            <div id="enemy-lion" class="enemy-object">
+                <img src="images/game/shougi/animal_mark_lion.png" style="width:100%; height:100%; transform:rotate(180deg);">
+            </div>
+        </div>
+        <div id="13" class="square col-xs-4" style="height:170px">
+            <div id="enemy-zou" class="enemy-object">
+                <img src="images/game/shougi/animal_mark_zou.png" style="width:100%; height:100%; transform:rotate(180deg);">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div id="21" class="square col-xs-4" style="height:170px"></div>
+        <div id="22" class="square col-xs-4" style="height:170px">
+            <div id="enemy-hiyoko" class="enemy-object">
+                <img src="images/game/shougi/animal_mark_hiyoko.png" style="width:100%; height:100%; transform:rotate(180deg);">
+            </div>
+        </div>
+        <div id="23" class="square col-xs-4" style="height:170px"></div>
+    </div>
+    
+    <div id="retry" class="row" style="text-align:center; display:none;"><button class="retry-button" type="button" style="font-size:15px; margin:20px;">リトライ</button></div>
+    
+        <div class="row">
+        <div id="31" class="square col-xs-4" style="height:170px"></div>
+        <div id="32" class="square col-xs-4" style="height:170px">
+            <div id="player-hiyoko" class="player-object">
+                <img src="images/game/shougi/animal_mark_hiyoko.png" style="width:100%; height:100%;">
+            </div>
+            
+        </div>
+        <div id="33" class="square col-xs-4" style="height:170px"></div>
+    </div>
+    <div class="row">
+        <div id="41" class="square col-xs-4" style="height:170px">
+            <div id="player-zou" class="player-object">
+                <img src="images/game/shougi/animal_mark_zou.png" style="width:100%; height:100%;">
+            </div>
+        </div>
+        <div id="42" class="square col-xs-4" style="height:170px">
+            <div id="player-lion" class="player-object">
+                <img src="images/game/shougi/animal_mark_lion.png" style="width:100%; height:100%;">
+            </div>
+        </div>
+        <div id="43" class="square col-xs-4" style="height:170px">
+            <div id="player-kirin" class="player-object">
+                <img src="images/game/shougi/animal_mark_kirin.png" style="width:100%; height:100%;">
+            </div>
+        </div>
+    </div>
+
+    <div id="player-captured-piece" class="row">
+        <div id="player-captured-piece-hiyoko-1" class="square col-xs-2"></div>
+        <div id="player-captured-piece-hiyoko-2" class="square col-xs-2"></div>
+        <div id="player-captured-piece-kirin-1" class="square col-xs-2"></div>
+        <div id="player-captured-piece-kirin-2" class="square col-xs-2"></div>
+        <div id="player-captured-piece-zou-1" class="square col-xs-2"></div>
+        <div id="player-captured-piece-zou-2" class="square col-xs-2"></div>
+    </div>
+<div id="player-win" class="row" style="text-align:center; font-size:50px; display:none;">勝ち</div>
+<div id="player-lose" class="row" style="text-align:center; font-size:50px; display:none;">負け</div>
+</div>
+</body>
+</html>
