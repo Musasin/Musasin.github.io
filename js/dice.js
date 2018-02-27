@@ -26,7 +26,7 @@ jQuery(function() {
         }
         $('#result').append('</div>');
         $('#result').append(
-            '<div id="sum" class="row" style="text-align:center; font-size:20px;">' + count + '回め 合計: ' + sum + ', 平均: ' + sum / diceCount + '</div>'
+            '<div id="sum" class="row" style="text-align:center; margin:20px; font-size:20px;">' + count + '回 合計: ' + sum + ', 平均: ' + sum / diceCount + '</div>'
         );
     });
     $('.reset-button').on('click', function(){
