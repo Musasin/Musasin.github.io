@@ -10,7 +10,7 @@
     <script src="games/YukaMakiFootrace/TemplateData/UnityProgress.js"></script>
     <script src="games/YukaMakiFootrace/Build/UnityLoader.js"></script>
     <script>
-        var gameInstance = UnityLoader.instantiate("gameContainer", "games/YukaMakiFootrace/Build/animation_test.json", {onProgress: UnityProgress});
+        var gameInstance = UnityLoader.instantiate("gameContainer", "games/YukaMakiFootrace/Build/YukaMakiFootrace.json", {onProgress: UnityProgress});
     </script>
 </head>
 <body>
@@ -29,12 +29,9 @@
     </div>
 </div>
 
-<div class="row webgl-content">
-    <div id="gameContainer" style="width: 960px; height: 600px"></div>
-    <div class="footer">
-        <div class="webgl-logo"></div>
-        <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
-        <div class="title">ゆかマキ徒競走</div>
+<div class="container" style="width: 1024px; height: 768px;">
+    <div class="col-xs-12">
+        <div id="gameContainer" style="width: 1024px; height: 768px;"></div>
     </div>
 </div>
 
