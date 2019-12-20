@@ -1,4 +1,6 @@
 jQuery(function(){
-    // $('#unityContainer').css('width', 512 * window.devicePixelRatio);
-    // $('#unityContainer').css('height', 384 * window.devicePixelRatio);
+    var dpr = window.devicePixelRatio || 1;
+    $('#unityContainer').css('width', 1024 * dpr);
+    $('#unityContainer').css('height', 768 * dpr);
+    $('#unityContainer').scale(1 / dpr, 1 / dpr);
 });
