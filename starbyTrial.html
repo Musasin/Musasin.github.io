@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>紲星あかりの最強ボイスロイドへの道 体験版</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="games/StarbyTrial/TemplateData/favicon.ico">
     <link rel="stylesheet" href="games/StarbyTrial/TemplateData/style.css">
-    <script src="js/jquery-3.2.1.min.js"></script>
     <script src="games/StarbyTrial/TemplateData/UnityProgress.js"></script>
     <script src="games/StarbyTrial/Build/UnityLoader.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
     <script>
-        var gameInstance = UnityLoader.instantiate("unityContainer", "games/StarbyTrial/Build/StarbyTrial.json", {onProgress: UnityProgress});
+        var unityInstance = UnityLoader.instantiate("unityContainer", "games/StarbyTrial/Build/StarbyTrial.json", {onProgress: UnityProgress});
     </script>
 </head>
 <body>
